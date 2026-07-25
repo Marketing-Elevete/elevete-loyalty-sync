@@ -39,6 +39,7 @@ build_section.py
 sync_config.py
 cloud_sync.py
 flavour_images.json
+_proto_css.txt
 requirements.txt
 .github/workflows/loyalty-sync.yml
 ```

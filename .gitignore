@@ -6,3 +6,6 @@ ll_config.json
 __pycache__/
 *.pyc
 .birthday-progress.json
+# build outputs (regenerated every run)
+rewards-club.liquid
+preview_*.html
