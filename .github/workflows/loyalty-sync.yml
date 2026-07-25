@@ -1,0 +1,29 @@
+name: Elevete Fam — loyalty catalogue sync
+
+# Keeps the rewards page's reward list / costs / tier names / earn rates in step with LoyaltyLion.
+# Runs on GitHub's servers, so it does NOT depend on anyone's laptop. See CLOUD-SYNC-SETUP.md.
+
+on:
+  schedule:
+    - cron: '17 * * * *'      # hourly at :17 UTC (off the top of the hour — GH delays :00 jobs)
+  workflow_dispatch: {}        # adds a manual "Run workflow" button
+
+concurrency:
+  group: loyalty-sync
+  cancel-in-progress: false    # never let two syncs overlap
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5         # the LoyaltyLion config endpoint is slow; guard against a hang
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # No pip install needed — the scripts use only the Python stdlib + curl (present on the runner).
+      - name: Publish catalogue to Shopify metafield
+        env:
+          LOYALTYLION_HEADLESS_KEY: ${{ secrets.LOYALTYLION_HEADLESS_KEY }}
+          SHOPIFY_ADMIN_TOKEN: ${{ secrets.SHOPIFY_ADMIN_TOKEN }}
+        run: python3 cloud_sync.py

@@ -1,0 +1,77 @@
+{
+ "Black Forest": {
+  "title": "Mon Cheri Black Forest Cake",
+  "handle": "blackforest-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_BlackForest_Cross-section-Shot.png?v=1783494048"
+ },
+ "Burnt Cheesecake": {
+  "title": "Burnt Cheesecake",
+  "handle": "burnt-cheesecake-kl",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_BurntCheeseCake_Cross-Section.png?v=1783351479"
+ },
+ "Chocolate Tuxedo": {
+  "title": "Chocolate Tuxedo Cake",
+  "handle": "chocolate-tuxedo-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_Chocolate-Tuxedo_Cross-section-Shot.png?v=1783496639"
+ },
+ "Tiramisu": {
+  "title": "Tiramisu Cake",
+  "handle": "dirty-tiramisu-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_Tiramisu_Cross-Section-Shot.png?v=1783090024"
+ },
+ "Tokeru": {
+  "title": "Tokeru Cheesecake (New York Baked Cheesecake)",
+  "handle": "tokeru-cheesecake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_TokeruCheeseCake_Cross-section.png?v=1783498124"
+ },
+ "Nutella": {
+  "title": "Nutella Fudge 9 inch",
+  "handle": "nutella-fudge-9-inch",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/products/NUTELLA_ELEVETE-10.jpg?v=1637087320"
+ },
+ "Chocolate Truffle": {
+  "title": "Chocolate Truffle 9 inch",
+  "handle": "chocolate-truffle-9-inch",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/products/ChocolateTruffle-4.jpg?v=1637087651"
+ },
+ "Butterscotch": {
+  "title": "Butterscotch Cookies Cake",
+  "handle": "butterscotch-cookies-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_ButterscotchCake_Cross-Section.png?v=1784078000"
+ },
+ "Ultimate Chocolate": {
+  "title": "Ultimate Chocolate Cake",
+  "handle": "ultimate-chocolate-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_UltimateChocolateCake_Cross-section.png?v=1782879504"
+ },
+ "Salted Caramel Chocolate": {
+  "title": "Salted Caramel Chocolate Cake",
+  "handle": "salted-caramel-chocolate-9-inch-2kg",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_SaltedCaramelCake_Cross-section.png?v=1784781215"
+ },
+ "Popcorn": {
+  "title": "Salted Caramel Chocolate Popcorn Cake 7 Inch (1kg)",
+  "handle": "salted-caramel-chocolate-popcorn-cake-7-inch",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_SaltedCaramelPopcornCake_Cross-section.png?v=1783497151"
+ },
+ "Pandan Gula Melaka": {
+  "title": "The Locale Cake (Pandan Gula Melaka)",
+  "handle": "the-locale-pandan-gula-melaka-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_PGM_Cross-section.png?v=1784076861"
+ },
+ "Lemon Poppy": {
+  "title": "Lemon Poppyseed Cake",
+  "handle": "lemon-poppyseed-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_LemonPoppy_Cross-section.png?v=1782880530"
+ },
+ "Raspberry Red Velvet": {
+  "title": "Raspberry Red Velvet Cake",
+  "handle": "raspberry-red-velvet-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_RedVelvet_Cross-section.png?v=1783491662"
+ },
+ "Sourdough Carrot": {
+  "title": "Sourdough Carrot Walnut Cake",
+  "handle": "sourdough-carrot-walnut-cake",
+  "image": "https://cdn.shopify.com/s/files/1/0046/1969/8210/files/EP_SourdoughCarrotCake_Cross-section.png?v=1783320838"
+ }
+}

@@ -1,0 +1,8 @@
+# never commit secrets or local runtime state
+*.token
+.env
+ll_config.json
+*.log
+__pycache__/
+*.pyc
+.birthday-progress.json
