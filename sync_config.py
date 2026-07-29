@@ -169,6 +169,10 @@ def render_ready(cfg):
 
     # Earn tiles: the ways to earn that don't already have their own surface on the page.
     earn = [{'kind': r['kind'], 'icon': r['icon'], 'title': r['title'], 'text': r['text'],
+             # id lets the rewards page attach data-rid → the tile opens LoyaltyLion's action
+             # modal (openRuleActionModal) and credits the follow/review. Auto rules (join, birthday)
+             # carry an id too but the page gates them on data-auto so they never become claim buttons.
+             'id': r.get('id'),
              'auto': 1 if r['kind'] in bs.AUTO_KINDS else 0} for r in bs.other_earn]
     ref = next((r for r in bs.rules if r['kind'] == 'referral'), None)
 

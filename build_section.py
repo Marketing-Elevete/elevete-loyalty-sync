@@ -16,7 +16,7 @@ EARN_ICONS={'purchase':'🛒','join_program':'🎁','newsletter_signup':'✉️'
 # text through made the earn tiles read "250 points" beside a page that says Crumbs everywhere,
 # which looks like two different currencies. Normalise it at the source.
 _crumbify = lambda t: re.sub(r'\bpoints?\b', lambda m: 'Crumbs' if m.group(0)=='points' else 'Crumb', t or '')
-rules=[{'kind':r.get('kind'),'title':fv(r).get('title','') or '','text':_crumbify(fv(r).get('result_short_text','')),
+rules=[{'kind':r.get('kind'),'id':r.get('id'),'title':fv(r).get('title','') or '','text':_crumbify(fv(r).get('result_short_text','')),
         'icon':EARN_ICONS.get(r.get('kind'),'✨')} for r in cfg['rules']]
 purchase=next((r for r in rules if r['kind']=='purchase'),None)
 # Tiles cover the ways to earn that AREN'T already given their own surface:
