@@ -2,8 +2,9 @@
 
 The rewards page (elevete.com.my/pages/rewards) reads its reward list, prices, rules,
 tier names/earn rates and the flavour of the month from a snapshot that this sync
-publishes. That snapshot refreshes **automatically every hour**, so any change you make
-in LoyaltyLion appears within the hour on its own — you don't have to do anything.
+publishes. That snapshot refreshes **automatically about every 5 minutes**, so any change
+you make in LoyaltyLion appears within a few minutes on its own — you don't have to do
+anything. (GitHub can delay scheduled runs under load, so occasionally it's 5–15 min.)
 
 If you want a change live **immediately** (e.g. you just repriced a reward or swapped
 the monthly flavour and want to see it now), trigger the sync by hand:
