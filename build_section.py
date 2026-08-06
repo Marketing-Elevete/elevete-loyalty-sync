@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """Generate sections/rewards-club.liquid — the custom Elevete rewards page as a
 namespaced Shopify section, wired to live window.loyaltylion.customer (B-lite).
@@ -1622,7 +1623,31 @@ LIQUID += '''{% schema %}
 
 LIQUID = LIQUID.replace('<!--TIERS_LIQUID-->', TIERS_LIQUID, 1)
 assert '<!--TIERS_LIQUID-->' not in LIQUID, "TIERS placeholder not replaced"
-open('rewards-club.liquid','w').write(LIQUID)
+# ⚠️  RETIRED — DO NOT WRITE THE LIVE SECTION FROM HERE (6 Aug 2026)
+# sections/rewards-club.liquid in the theme repo is now HAND-MAINTAINED. It carries the member
+# account hub, membership card, flavour passport, milestones, the challenge tracker and the
+# accessibility fixes, none of which exist in this generator — and its JavaScript now lives in
+# assets/rewards-club.js because the inline version breached Shopify's 256KB section limit.
+# Regenerating would delete all of that AND re-break the size limit.
+#
+# This write was also MODULE-LEVEL with no __main__ guard, so it ran on every import — including
+# the 5-minute cron, which imports this module for render_ready(). Now guarded.
+#
+# What this repo still does, and must keep doing: cloud_sync.py publishes the LoyaltyLion config
+# to the Shopify metafield page.metafields.sweet_club.catalogue every 5 minutes. The section
+# reads its rewards, slices, vouchers, tiers, earn rules and referral offer from that metafield,
+# so LoyaltyLion changes reach the page within 5 minutes with no code change. That path is
+# untouched by this guard.
+#
+# Full workflow: Shopify Editor Elevete/REWARDS-PAGE.md
+if __name__ == '__main__' and os.environ.get('ALLOW_LEGACY_SECTION_BUILD') == '1':
+    open('rewards-club.liquid','w').write(LIQUID)
+elif __name__ == '__main__':
+    raise SystemExit(
+        'build_section.py no longer generates the live section.\n'
+        'The section is hand-maintained at sections/rewards-club.liquid in the theme repo.\n'
+        'See REWARDS-PAGE.md. To write the legacy file anyway (it will NOT be deployed):\n'
+        '  ALLOW_LEGACY_SECTION_BUILD=1 python3 build_section.py')
 print("section built:", len(LIQUID), "chars | vouchers", len(vouchers), "slices", len(slices))
 
 # ---- local preview: mock the LL SDK (member + guest) for verification ----
