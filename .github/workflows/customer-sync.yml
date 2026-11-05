@@ -1,0 +1,41 @@
+name: Elevete Fam — customer profile sync
+
+# Nightly: copies vouchers, can-claim and review dates onto Shopify customer metafields.
+# Runs on GitHub's servers, so it does not depend on anyone's laptop. A failed run emails the repo's owner.
+
+on:
+  # schedule:                 # switch on after the first manual run is checked
+  #   - cron: '30 18 * * *'   # 02:30 Malaysia time
+  workflow_dispatch: {}        # manual "Run workflow" button
+
+concurrency:
+  group: customer-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore what was last written
+        uses: actions/cache/restore@v4
+        with:
+          path: customer_sync_state.json
+          key: customer-sync-state-${{ github.run_id }}
+          restore-keys: customer-sync-state-
+      - name: Sync customer profiles
+        env:
+          LOYALTYLION_HEADLESS_KEY: ${{ secrets.LOYALTYLION_HEADLESS_KEY }}
+          SHOPIFY_ADMIN_TOKEN: ${{ secrets.SHOPIFY_ADMIN_TOKEN }}
+          KLAVIYO_KEY: ${{ secrets.KLAVIYO_KEY }}
+        run: python3 customer_sync.py --write
+      - name: Save what was written
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: customer_sync_state.json
+          key: customer-sync-state-${{ github.run_id }}

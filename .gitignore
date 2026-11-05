@@ -9,3 +9,4 @@ __pycache__/
 # build outputs (regenerated every run)
 rewards-club.liquid
 preview_*.html
+customer_sync_state.json
