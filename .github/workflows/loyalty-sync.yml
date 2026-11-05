@@ -5,7 +5,7 @@ name: Elevete Fam — loyalty catalogue sync
 
 on:
   schedule:
-    - cron: '*/5 * * * *'     # every 5 min — GitHub Actions' shortest allowed interval.
+    - cron: '7 * * * *'       # hourly, so a private repo stays inside GitHub's free minutes.
                               # Note: GitHub delays/drops scheduled runs under load, so real
                               # cadence is ~5–15 min, not guaranteed 5. For an instant refresh
                               # after a LoyaltyLion change, use the manual trigger (see SYNC-NOW.md).
