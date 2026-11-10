@@ -7,6 +7,10 @@ import json, html, re
 
 cfg = json.load(open('/tmp/ll_config.json'))
 img = json.load(open('flavour_images.json'))
+# Slice reward cards show the slice's own photo: the Shopify variant image of the reward's
+# variant (Syafiq, 10 Nov 2026). Cross-section shots stay as the fallback.
+import os as _os
+SLICE_IMG = json.load(open('slice_images.json')) if _os.path.exists('slice_images.json') else {}
 def esc(s): return html.escape(str(s))
 def fv(o): return (o.get('variants') or [{}])[0]
 
@@ -77,7 +81,7 @@ for r in cfg['rewards']:
         # LoyaltyLion titles carry stray whitespace (" Pandan Gula Melaka…"), harmless in a block
         # element but visible the moment the name is concatenated into a sentence.
         clean=' '.join(title.replace('Free ','').replace(' [Premium]','').replace(' [Standard]','').split())
-        slices.append({'id':r.get('id'),'title':clean,'pts':pts,'tier':'Premium' if '[Premium]' in title else 'Standard','img':match_img(title)})
+        slices.append({'id':r.get('id'),'title':clean,'pts':pts,'tier':'Premium' if '[Premium]' in title else 'Standard','img':(SLICE_IMG.get(str((((r.get('properties') or {}).get('product') or {}).get('variants') or [{}])[0].get('id')),{}).get('image') or match_img(title))})
 vouchers.sort(key=lambda x:x['pts'])
 
 # tier matrix (plain language)
